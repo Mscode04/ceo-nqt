@@ -457,6 +457,7 @@ ul, ol {
 .blog-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  padding-right: 10px;
   gap: var(--space-lg);
   margin-bottom: var(--space-xl);
 }
