@@ -71,7 +71,7 @@ body {
   color: var(--text-color);
   background-color: var(--primary-color);
   line-height: 1.6;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -457,7 +457,7 @@ ul, ol {
 .blog-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  padding-right: 10px;
+  /* padding-right: 10px; */
   gap: var(--space-lg);
   margin-bottom: var(--space-xl);
 }
