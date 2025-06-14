@@ -76,72 +76,142 @@
         </div>
     </section>
     
-    <!-- Blog Section -->
-    <section id="blog" class="section blog-section">
-        <div class="section-container">
-            <h2 class="section-title wow fadeInUp">My <span>Blog</span></h2>
-            <p class="section-subtitle wow fadeInUp" data-wow-delay="0.2s">Thoughts, insights, and professional updates</p>
+   <!-- Blog Section -->
+<section id="blog" class="section blog-section bg-dark">
+    <div class="section-container">
+        <div class="section-header">
+            <h2 class="section-title wow fadeInUp">Insights & <span>Articles</span></h2>
+            <p class="section-subtitle wow fadeInUp" data-wow-delay="0.2s">Professional perspectives and industry analysis</p>
+            <div class="section-divider"></div>
+        </div>
+        
+        <div class="blog-filters wow fadeInUp" data-wow-delay="0.3s">
+            <button class="filter-btn active" data-filter="all">All Topics</button>
+            <button class="filter-btn" data-filter="technology">Technology</button>
+            <button class="filter-btn" data-filter="leadership">Leadership</button>
+            <button class="filter-btn" data-filter="industry">Industry Trends</button>
+            <button class="filter-btn" data-filter="case-studies">Case Studies</button>
+        </div>
+        
+        <div class="blog-grid">
+            <!-- Featured Article -->
+            <article class="blog-card featured wow fadeInUp" data-category="technology">
+                <div class="blog-badge">Featured</div>
+                <div class="blog-media">
+                    <div class="image-slider">
+                        <div class="slider-container">
+                            <img src="https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?cs=srgb&dl=pexels-souvenirpixels-414612.jpg&fm=jpg" alt="Technology innovation" class="active">
+                            <img src="https://media.istockphoto.com/id/154948874/photo/crescent-moon-on-twilight-sky.jpg?s=612x612&w=0&k=20&c=6gC3s9SQpmdob4P2WKkmRfk6w4NGw8zqccsh5kaORXQ=" alt="Code development">
+                            <img src="https://static.vecteezy.com/system/resources/thumbnails/036/324/708/small/ai-generated-picture-of-a-tiger-walking-in-the-forest-photo.jpg" alt="Team collaboration">
+                            <img src="https://static.vecteezy.com/system/resources/thumbnails/047/507/397/small/colourful-tiny-finch-stands-on-a-branch-birdgraphy-free-photo.jpg" alt="Project results">
+                        </div>
+                        <div class="slider-controls">
+                            <button class="slider-prev"><i class="fas fa-chevron-left"></i></button>
+                            <button class="slider-next"><i class="fas fa-chevron-right"></i></button>
+                            <div class="slider-dots"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-date">June 15, 2023</span>
+                        <span class="blog-reading-time">8 min read</span>
+                        <span class="blog-category">Technology</span>
+                    </div>
+                    <h3 class="blog-title">Emerging Technologies That Will Transform Business in 2023</h3>
+                    <p class="blog-excerpt">An in-depth analysis of the top 5 technological innovations that are poised to disrupt industries and create new opportunities for forward-thinking organizations...</p>
+                    <div class="blog-footer">
+                        <a href="blog/emerging-technologies.html" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
+                        <div class="blog-actions">
+                            <button class="bookmark-btn" aria-label="Bookmark article"><i class="far fa-bookmark"></i></button>
+                            <button class="share-btn" aria-label="Share article"><i class="fas fa-share-alt"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </article>
             
-            <div class="blog-grid">
-                <!-- Featured Blog Post (with multiple images) -->
-                <article class="blog-card featured wow fadeInUp">
-                    <div class="blog-media">
-                        <div class="image-grid">
-                            <div class="grid-item"><img src="assets/blog/post1/img1.jpg" alt="Blog image 1"></div>
-                            <div class="grid-item"><img src="assets/blog/post1/img2.jpg" alt="Blog image 2"></div>
-                            <div class="grid-item"><img src="assets/blog/post1/img3.jpg" alt="Blog image 3"></div>
-                            <div class="grid-item"><img src="assets/blog/post1/img4.jpg" alt="Blog image 4"></div>
+            <!-- Article 2 -->
+            <article class="blog-card wow fadeInUp" data-wow-delay="0.1s" data-category="leadership">
+                <div class="blog-media">
+                    <img src="assets/blog/post2/cover.jpg" alt="Leadership in tech" loading="lazy">
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-date">May 28, 2023</span>
+                        <span class="blog-reading-time">6 min read</span>
+                        <span class="blog-category">Leadership</span>
+                    </div>
+                    <h3 class="blog-title">Building High-Performance Teams in Remote Work Environments</h3>
+                    <p class="blog-excerpt">Key strategies for fostering collaboration, maintaining productivity, and preserving company culture when your team is distributed across locations...</p>
+                    <div class="blog-footer">
+                        <a href="blog/high-performance-teams.html" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
+                        <div class="blog-actions">
+                            <button class="bookmark-btn" aria-label="Bookmark article"><i class="far fa-bookmark"></i></button>
+                            <button class="share-btn" aria-label="Share article"><i class="fas fa-share-alt"></i></button>
                         </div>
-                        <button class="view-slider-btn">View as Slider</button>
                     </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-date">June 15, 2023</span>
-                            <span class="blog-category">Professional</span>
-                        </div>
-                        <h3 class="blog-title">Featured Blog Post Title</h3>
-                        <p class="blog-excerpt">Brief excerpt from the blog post that entices readers to click through and read more...</p>
-                        <a href="blog/featured-post.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-                
-                <!-- Regular Blog Posts -->
-                <article class="blog-card wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="blog-media">
-                        <img src="assets/blog/post2/cover.jpg" alt="Blog post cover">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-date">May 28, 2023</span>
-                            <span class="blog-category">Technology</span>
-                        </div>
-                        <h3 class="blog-title">Another Interesting Blog Post</h3>
-                        <p class="blog-excerpt">Brief excerpt from this blog post that gives readers a preview of the content...</p>
-                        <a href="blog/another-post.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-                
-                <article class="blog-card wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="blog-media">
-                        <img src="assets/blog/post3/cover.jpg" alt="Blog post cover">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-date">April 12, 2023</span>
-                            <span class="blog-category">Industry Insights</span>
-                        </div>
-                        <h3 class="blog-title">Insights From My Professional Journey</h3>
-                        <p class="blog-excerpt">Key lessons learned throughout my career that might be valuable to others...</p>
-                        <a href="blog/professional-journey.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-            </div>
+                </div>
+            </article>
             
-            <div class="view-all-container wow fadeInUp">
-                <a href="blog/" class="btn btn-outline">View All Posts</a>
+            <!-- Article 3 -->
+            <article class="blog-card wow fadeInUp" data-wow-delay="0.2s" data-category="industry">
+                <div class="blog-media">
+                    <img src="assets/blog/post3/cover.jpg" alt="Industry trends" loading="lazy">
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-date">April 12, 2023</span>
+                        <span class="blog-reading-time">10 min read</span>
+                        <span class="blog-category">Industry Trends</span>
+                    </div>
+                    <h3 class="blog-title">The Future of Digital Transformation: 2023 Industry Outlook</h3>
+                    <p class="blog-excerpt">Comprehensive analysis of how digital transformation priorities are shifting across sectors, with actionable insights for executives...</p>
+                    <div class="blog-footer">
+                        <a href="blog/digital-transformation.html" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
+                        <div class="blog-actions">
+                            <button class="bookmark-btn" aria-label="Bookmark article"><i class="far fa-bookmark"></i></button>
+                            <button class="share-btn" aria-label="Share article"><i class="fas fa-share-alt"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Article 4 (hidden until filtered) -->
+            <article class="blog-card wow fadeInUp" data-wow-delay="0.3s" data-category="case-studies">
+                <div class="blog-media">
+                    <img src="assets/blog/post4/cover.jpg" alt="Case study" loading="lazy">
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-date">March 22, 2023</span>
+                        <span class="blog-reading-time">12 min read</span>
+                        <span class="blog-category">Case Study</span>
+                    </div>
+                    <h3 class="blog-title">How We Scaled Infrastructure to Handle 10x Traffic Growth</h3>
+                    <p class="blog-excerpt">Detailed technical case study on the architecture decisions and implementation strategies that enabled seamless scaling during rapid user growth...</p>
+                    <div class="blog-footer">
+                        <a href="blog/scaling-case-study.html" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
+                        <div class="blog-actions">
+                            <button class="bookmark-btn" aria-label="Bookmark article"><i class="far fa-bookmark"></i></button>
+                            <button class="share-btn" aria-label="Share article"><i class="fas fa-share-alt"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+        
+        <div class="blog-cta wow fadeInUp">
+            <p class="cta-text">Stay updated with the latest insights</p>
+            <form class="subscribe-form">
+                <input type="email" placeholder="Your professional email" required>
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+            <div class="view-all-container">
+                <a href="blog/" class="btn btn-outline">Browse All Articles</a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
     
     <!-- Experience Section with Timeline -->
     <section id="experience" class="section experience-section">
@@ -302,7 +372,153 @@
     <!-- JavaScript Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script>
+        // Blog Section Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Filter blog posts
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const blogCards = document.querySelectorAll('.blog-card');
     
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Update active button
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            const filterValue = button.dataset.filter;
+            
+            // Filter cards
+            blogCards.forEach(card => {
+                if (filterValue === 'all' || card.dataset.category === filterValue) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+    
+    // Initialize image sliders
+    const imageSliders = document.querySelectorAll('.image-slider');
+    
+    imageSliders.forEach(slider => {
+        const container = slider.querySelector('.slider-container');
+        const images = container.querySelectorAll('img');
+        const prevBtn = slider.querySelector('.slider-prev');
+        const nextBtn = slider.querySelector('.slider-next');
+        const dotsContainer = slider.querySelector('.slider-dots');
+        let currentIndex = 0;
+        
+        // Create dots
+        images.forEach((_, index) => {
+            const dot = document.createElement('span');
+            dot.classList.add('slider-dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(index));
+            dotsContainer.appendChild(dot);
+        });
+        
+        const dots = dotsContainer.querySelectorAll('.slider-dot');
+        
+        // Set initial active image
+        images[0].classList.add('active');
+        
+        // Previous button
+        prevBtn.addEventListener('click', () => {
+            goToSlide(currentIndex > 0 ? currentIndex - 1 : images.length - 1);
+        });
+        
+        // Next button
+        nextBtn.addEventListener('click', () => {
+            goToSlide(currentIndex < images.length - 1 ? currentIndex + 1 : 0);
+        });
+        
+        // Go to specific slide
+        function goToSlide(index) {
+            images[currentIndex].classList.remove('active');
+            dots[currentIndex].classList.remove('active');
+            
+            currentIndex = index;
+            
+            images[currentIndex].classList.add('active');
+            dots[currentIndex].classList.add('active');
+        }
+        
+        // Auto-advance slides
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            let slideInterval = setInterval(() => {
+                goToSlide(currentIndex < images.length - 1 ? currentIndex + 1 : 0);
+            }, 5000);
+            
+            // Pause on hover
+            slider.addEventListener('mouseenter', () => {
+                clearInterval(slideInterval);
+            });
+            
+            slider.addEventListener('mouseleave', () => {
+                slideInterval = setInterval(() => {
+                    goToSlide(currentIndex < images.length - 1 ? currentIndex + 1 : 0);
+                }, 5000);
+            });
+        }
+    });
+    
+    // Bookmark functionality
+    const bookmarkButtons = document.querySelectorAll('.bookmark-btn');
+    
+    bookmarkButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            button.classList.toggle('active');
+            button.innerHTML = button.classList.contains('active') ? 
+                '<i class="fas fa-bookmark"></i>' : '<i class="far fa-bookmark"></i>';
+            
+            // In a real implementation, you would save this to localStorage or a database
+        });
+    });
+    
+    // Share functionality
+    const shareButtons = document.querySelectorAll('.share-btn');
+    
+    shareButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            const card = button.closest('.blog-card');
+            const title = card.querySelector('.blog-title').textContent;
+            const url = card.querySelector('.read-more').getAttribute('href');
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: title,
+                    url: url
+                }).catch(err => {
+                    console.log('Error sharing:', err);
+                });
+            } else {
+                // Fallback for browsers that don't support Web Share API
+                const shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(window.location.origin + url)}`;
+                window.open(shareUrl, '_blank');
+            }
+        });
+    });
+    
+    // Subscription form
+    const subscribeForm = document.querySelector('.subscribe-form');
+    
+    if (subscribeForm) {
+        subscribeForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const emailInput = this.querySelector('input[type="email"]');
+            const email = emailInput.value.trim();
+            
+            if (email) {
+                // In a real implementation, you would send this to your backend
+                console.log('Subscribed email:', email);
+                emailInput.value = '';
+                alert('Thank you for subscribing!');
+            }
+        });
+    }
+});
+    </script>
     <!-- Main JavaScript File -->
     <script src="js/main.js"></script>
     

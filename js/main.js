@@ -244,120 +244,151 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', debounce(animateGantt));
   }
 
-  // ==========================================================================
-  // Blog Image Grid/Slider Toggle
-  // ==========================================================================
-
-  const viewSliderButtons = document.querySelectorAll('.view-slider-btn');
-  viewSliderButtons.forEach(button => {
-    button.addEventListener('click', function() {
-      const imageGrid = this.closest('.blog-media').querySelector('.image-grid');
-      imageGrid.classList.toggle('slider-mode');
-      
-      if (imageGrid.classList.contains('slider-mode')) {
-        this.textContent = 'View as Grid';
-        initImageSlider(imageGrid);
-      } else {
-        this.textContent = 'View as Slider';
-        destroyImageSlider(imageGrid);
-      }
-    });
-  });
-
-  /**
-   * Initialize a simple image slider
-   * @param {HTMLElement} container - The container element with images
-   */
-  function initImageSlider(container) {
-    const images = container.querySelectorAll('.grid-item');
-    let currentIndex = 0;
+// Blog Section Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Filter blog posts
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const blogCards = document.querySelectorAll('.blog-card');
     
-    // Add slider controls
-    const sliderControls = document.createElement('div');
-    sliderControls.className = 'slider-controls';
-    sliderControls.innerHTML = `
-      <button class="slider-prev"><i class="fas fa-chevron-left"></i></button>
-      <button class="slider-next"><i class="fas fa-chevron-right"></i></button>
-      <div class="slider-dots"></div>
-    `;
-    container.appendChild(sliderControls);
-    
-    // Create dots
-    const dotsContainer = sliderControls.querySelector('.slider-dots');
-    images.forEach((_, index) => {
-      const dot = document.createElement('span');
-      dot.className = 'slider-dot';
-      if (index === 0) dot.classList.add('active');
-      dot.addEventListener('click', () => goToSlide(index));
-      dotsContainer.appendChild(dot);
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Update active button
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            const filterValue = button.dataset.filter;
+            
+            // Filter cards
+            blogCards.forEach(card => {
+                if (filterValue === 'all' || card.dataset.category === filterValue) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
     });
     
-    // Set up initial state
-    images.forEach((img, index) => {
-      img.style.transform = `translateX(${index * 100}%)`;
-      img.style.transition = 'transform 0.5s ease';
+    // Initialize image sliders
+    const imageSliders = document.querySelectorAll('.image-slider');
+    
+    imageSliders.forEach(slider => {
+        const container = slider.querySelector('.slider-container');
+        const images = container.querySelectorAll('img');
+        const prevBtn = slider.querySelector('.slider-prev');
+        const nextBtn = slider.querySelector('.slider-next');
+        const dotsContainer = slider.querySelector('.slider-dots');
+        let currentIndex = 0;
+        
+        // Create dots
+        images.forEach((_, index) => {
+            const dot = document.createElement('span');
+            dot.classList.add('slider-dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(index));
+            dotsContainer.appendChild(dot);
+        });
+        
+        const dots = dotsContainer.querySelectorAll('.slider-dot');
+        
+        // Set initial active image
+        images[0].classList.add('active');
+        
+        // Previous button
+        prevBtn.addEventListener('click', () => {
+            goToSlide(currentIndex > 0 ? currentIndex - 1 : images.length - 1);
+        });
+        
+        // Next button
+        nextBtn.addEventListener('click', () => {
+            goToSlide(currentIndex < images.length - 1 ? currentIndex + 1 : 0);
+        });
+        
+        // Go to specific slide
+        function goToSlide(index) {
+            images[currentIndex].classList.remove('active');
+            dots[currentIndex].classList.remove('active');
+            
+            currentIndex = index;
+            
+            images[currentIndex].classList.add('active');
+            dots[currentIndex].classList.add('active');
+        }
+        
+        // Auto-advance slides
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            let slideInterval = setInterval(() => {
+                goToSlide(currentIndex < images.length - 1 ? currentIndex + 1 : 0);
+            }, 5000);
+            
+            // Pause on hover
+            slider.addEventListener('mouseenter', () => {
+                clearInterval(slideInterval);
+            });
+            
+            slider.addEventListener('mouseleave', () => {
+                slideInterval = setInterval(() => {
+                    goToSlide(currentIndex < images.length - 1 ? currentIndex + 1 : 0);
+                }, 5000);
+            });
+        }
     });
     
-    // Previous button
-    sliderControls.querySelector('.slider-prev').addEventListener('click', () => {
-      goToSlide(currentIndex > 0 ? currentIndex - 1 : images.length - 1);
+    // Bookmark functionality
+    const bookmarkButtons = document.querySelectorAll('.bookmark-btn');
+    
+    bookmarkButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            button.classList.toggle('active');
+            button.innerHTML = button.classList.contains('active') ? 
+                '<i class="fas fa-bookmark"></i>' : '<i class="far fa-bookmark"></i>';
+            
+            // In a real implementation, you would save this to localStorage or a database
+        });
     });
     
-    // Next button
-    sliderControls.querySelector('.slider-next').addEventListener('click', () => {
-      goToSlide(currentIndex < images.length - 1 ? currentIndex + 1 : 0);
+    // Share functionality
+    const shareButtons = document.querySelectorAll('.share-btn');
+    
+    shareButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            const card = button.closest('.blog-card');
+            const title = card.querySelector('.blog-title').textContent;
+            const url = card.querySelector('.read-more').getAttribute('href');
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: title,
+                    url: url
+                }).catch(err => {
+                    console.log('Error sharing:', err);
+                });
+            } else {
+                // Fallback for browsers that don't support Web Share API
+                const shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(window.location.origin + url)}`;
+                window.open(shareUrl, '_blank');
+            }
+        });
     });
     
-    // Go to specific slide
-    function goToSlide(index) {
-      images.forEach((img, i) => {
-        img.style.transform = `translateX(${(i - index) * 100}%)`;
-      });
-      
-      // Update dots
-      document.querySelectorAll('.slider-dot').forEach(dot => {
-        dot.classList.remove('active');
-      });
-      dotsContainer.children[index].classList.add('active');
-      
-      currentIndex = index;
+    // Subscription form
+    const subscribeForm = document.querySelector('.subscribe-form');
+    
+    if (subscribeForm) {
+        subscribeForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const emailInput = this.querySelector('input[type="email"]');
+            const email = emailInput.value.trim();
+            
+            if (email) {
+                // In a real implementation, you would send this to your backend
+                console.log('Subscribed email:', email);
+                emailInput.value = '';
+                alert('Thank you for subscribing!');
+            }
+        });
     }
-    
-    // Auto-advance slides (if not preferring reduced motion)
-    if (!prefersReducedMotion) {
-      let slideInterval = setInterval(() => {
-        goToSlide(currentIndex < images.length - 1 ? currentIndex + 1 : 0);
-      }, 5000);
-      
-      // Pause on hover
-      container.addEventListener('mouseenter', () => {
-        clearInterval(slideInterval);
-      });
-      
-      container.addEventListener('mouseleave', () => {
-        slideInterval = setInterval(() => {
-          goToSlide(currentIndex < images.length - 1 ? currentIndex + 1 : 0);
-        }, 5000);
-      });
-    }
-  }
-
-  /**
-   * Remove slider functionality and return to grid
-   * @param {HTMLElement} container - The container element with images
-   */
-  function destroyImageSlider(container) {
-    const sliderControls = container.querySelector('.slider-controls');
-    if (sliderControls) {
-      sliderControls.remove();
-    }
-    
-    const images = container.querySelectorAll('.grid-item');
-    images.forEach(img => {
-      img.style.transform = '';
-      img.style.transition = '';
-    });
-  }
+});
 
   // ==========================================================================
   // Scroll Indicator
