@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GHCI 2025 Experience | Shaheen KP</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #0a0a0a;
+      --secondary-color: #1a1a1a;
+      --accent-color: #ff4d4d;
+      --text-color: #f0f0f0;
+      --text-secondary: #b0b0b0;
+      --card-bg: #1e1e1e;
+      --border-color: #333;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--primary-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .blog-header {
+      padding: 4rem 0 2rem;
+      text-align: center;
+      background: linear-gradient(rgba(10,10,10,0.9), rgba(10,10,10,0.9)), url('Assets/img/blog-bg.jpg') center/cover;
+    }
+
+    .blog-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .blog-meta {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      color: var(--text-secondary);
+    }
+
+    .blog-content {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 0 20px;
+    }
+
+    .blog-image {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin: 2rem 0;
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin: 2rem 0;
+    }
+
+    .image-grid img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    .blog-footer {
+      border-top: 1px solid var(--border-color);
+      padding: 2rem 0;
+      margin-top: 3rem;
+    }
+
+    .action-buttons {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      padding: 0.6rem 1.2rem;
+      border-radius: 4px;
+      font-weight: 500;
+      cursor: pointer;
+      border: 1px solid var(--accent-color);
+      background: transparent;
+      color: var(--accent-color);
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background: var(--accent-color);
+      color: white;
+    }
+
+    @media print {
+      .no-print {
+        display: none;
+      }
+      body {
+        background: white;
+        color: black;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+  <div class="blog-header">
+    <div class="container">
+      <h1 class="blog-title">My Experience at GHCI 2025: A Celebration of Innovation & Inclusion in Tech</h1>
+      <div class="blog-meta">
+        <span><i class="far fa-calendar-alt"></i> November 22,23, 2024</span>
+        <span><i class="far fa-clock"></i> 6 min read</span>
+        <span><i class="fas fa-tag"></i> Technology, Events</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="blog-content">
+    <img src="Assets/img/blog-5.JPG" alt="GHCI conference" class="blog-image">
+    
+    <h2>Empowered by Ideas: My Journey Through GHCI 2025 in Bengaluru</h2>
+    
+    <p>This year, I had the incredible opportunity to attend GHCI 2025 (Grace Hopper Celebration India) in Bengaluru—the largest gathering of women in technology in the country. As the founder of Neuraq Technologies, it was both an honor and a privilege to be part of such a powerful and inclusive tech community.</p>
+    
+    <p>From the moment I stepped into the venue, I was immersed in a vibrant atmosphere filled with innovation, collaboration, and inspiration. The sessions covered everything from emerging technologies like AI and quantum computing to diversity in leadership, product innovation, and entrepreneurial journeys.</p>
+    
+    <div class="image-grid">
+      <img src="Assets/img/blog-6.jpg" alt="Networking session">
+      <img src="Assets/img/blog-7.jpg" alt="Panel discussion">
+    </div>
+    
+    <p>Hearing from trailblazers in the industry not only broadened my technical horizons but also reinforced the value of inclusive innovation. I was especially inspired by the community's focus on social impact through technology, which aligns perfectly with Neuraq's mission to drive meaningful change—especially in sectors like healthcare and education.</p>
+    
+    <p>One of the highlights was connecting with fellow founders, engineers, and researchers from across the country. These conversations sparked new ideas and opened doors for future collaborations.</p>
+    
+    <img src="Assets/img/blog-8.jpg" alt="Conference hall" class="blog-image">
+    
+    <p>GHCI 2025 wasn't just a conference—it was a movement. A reminder that technology grows stronger when built by diverse minds with a shared vision. I left Bengaluru filled with gratitude, new knowledge, and a deeper drive to keep building, learning, and contributing to the future of tech.</p>
+
+    <div class="blog-footer">
+      <div class="action-buttons no-print">
+        <button class="btn" onclick="window.print()">🖨 Print Article</button>
+        <button class="btn" id="shareBtn">🔗 Share This Page</button>
+      </div>
+      
+    </div>
+  </div>
+
+  <script>
+    // Web Share API with fallback
+    document.getElementById('shareBtn').addEventListener('click', async () => {
+      const shareData = {
+        title: document.title,
+        text: "Check out my experience at GHCI 2025!",
+        url: window.location.href,
+      };
+
+      if (navigator.share) {
+        try {
+          await navigator.share(shareData);
+        } catch (err) {
+          console.error("Share failed:", err);
+        }
+      } else {
+        navigator.clipboard.writeText(window.location.href).then(() => {
+          alert("Link copied to clipboard!");
+        });
+      }
+    });
+  </script>
+</body>
+</html>

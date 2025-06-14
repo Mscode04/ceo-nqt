@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional portfolio showcasing my work, experience, and blog">
+    <title> Shaheen KP | Portfolio</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="css/main.css" as="style">
+    <link rel="preload" href="js/main.js" as="script">
+    
+    <!-- CSS (will be requested separately) -->
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        /* Blog Section */
+.blog-section {
+    background: var(--secondary-color);
+    padding: 5rem 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-divider {
+    width: 80px;
+    height: 3px;
+    background: var(--accent-color);
+    margin: 1.5rem auto;
+}
+
+.blog-filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+}
+
+.filter-btn {
+    padding: 0.5rem 1.25rem;
+    border-radius: 20px;
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.blog-card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.blog-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: var(--accent-color);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    z-index: 2;
+}
+
+.blog-media {
+    position: relative;
+    overflow: hidden;
+    height: 220px;
+}
+
+.blog-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.blog-card:hover .blog-media img {
+    transform: scale(1.05);
+}
+
+.image-slider {
+    position: relative;
+    height: 100%;
+}
+
+.slider-container {
+    position: relative;
+    height: 100%;
+}
+
+.slider-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.slider-container img.active {
+    opacity: 1;
+}
+
+.slider-controls {
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    z-index: 2;
+}
+
+.slider-prev, .slider-next {
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.slider-prev:hover, .slider-next:hover {
+    background: var(--accent-color);
+}
+
+.slider-dots {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.slider-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.slider-dot.active {
+    background: var(--accent-color);
+    transform: scale(1.2);
+}
+
+.blog-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.blog-reading-time {
+    display: flex;
+    align-items: center;
+}
+
+.blog-reading-time::before {
+    content: "•";
+    margin-right: 0.5rem;
+}
+
+.blog-category {
+    color: var(--accent-color);
+    font-weight: 500;
+}
+
+.blog-title {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.blog-excerpt {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.blog-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.read-more {
+    font-weight: 600;
+    color: var(--accent-color);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.read-more i {
+    transition: transform 0.3s ease;
+}
+
+.read-more:hover i {
+    transform: translateX(3px);
+}
+
+.blog-actions {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.bookmark-btn, .share-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.bookmark-btn:hover, .share-btn:hover {
+    color: var(--accent-color);
+    background: rgba(255, 77, 77, 0.1);
+}
+
+.bookmark-btn.active {
+    color: var(--accent-color);
+}
+
+.blog-cta {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.cta-text {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+}
+
+.subscribe-form {
+    display: flex;
+    max-width: 500px;
+    margin: 0 auto 2rem;
+}
+
+.subscribe-form input {
+    flex-grow: 1;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px 0 0 4px;
+    background: var(--card-bg);
+    color: var(--text-color);
+}
+
+.subscribe-form button {
+    border-radius: 0 4px 4px 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .blog-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .blog-filters {
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .subscribe-form {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .subscribe-form input,
+    .subscribe-form button {
+        width: 100%;
+        border-radius: 4px;
+    }
+}
+    </style>
+</head>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelector("#contact-link a").href = "contact.html";
+    document.querySelector("#blog-link a").href = "blog.html";
+    document.querySelector("#tinkerday-mlp-link a").href = "tinkerday-mlp.html";
+    document.querySelector("#tinker-carnival-link a").href = "tinker-carnival.html";
+    document.querySelector("#permute25-link a").href = "permute25.html";
+    document.querySelector("#launch-app-link a").href = "launch-app.html";
+    document.querySelector("#googlegenai-link a").href = "googlegenai.html";
+    document.querySelector("#ghci25-link a").href = "ghci25.html";
+  });
+</script>
+<body class="dark-theme">
+    <!-- Floating Chatbot Button -->
+    <!-- <button id="chatbot-button" class="floating-button" aria-label="Open chatbot">
+        <i class="fas fa-robot"></i>
+    </button> -->
+    
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="#home" class="brand-logo">Shaheen<span> kuzhiyengal</span></a>
+            <button class="hamburger" aria-label="Menu" aria-expanded="false">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+
+    
+   <!-- Blog Section -->
+<section id="blog" class="section blog-section bg-dark" style="margin-top: 20px;">
+    <div class="section-container">
+        <div class="section-header">
+            <h2 class="section-title wow fadeInUp">Insights & <span>Blogs</span></h2>
+            <p class="section-subtitle wow fadeInUp" data-wow-delay="0.2s">Where innovation is imagined, refined, and shared</p>
+            <div class="section-divider"></div>
+        </div>
+        
+        <!-- <div class="blog-filters wow fadeInUp" data-wow-delay="0.3s">
+            <button class="filter-btn active" data-filter="all">All Topics</button>
+            <button class="filter-btn" data-filter="technology">Technology</button>
+            <button class="filter-btn" data-filter="leadership">Leadership</button>
+            <button class="filter-btn" data-filter="industry">Industry Trends</button>
+            <button class="filter-btn" data-filter="case-studies">Case Studies</button>
+        </div> -->
+        
+        <div class="blog-grid">
+             <!-- Featured Article -->
+            <article class="blog-card featured wow fadeInUp" data-category="technology">
+                <!-- <div class="blog-badge">Featured</div> -->
+                <div class="blog-media">
+                    <div class="image-slider">
+                        <div class="slider-container">
+                            <img src="Assets/img/blog-1.JPG" alt="Technology innovation" class="active">
+                            <img src="Assets/img/blog-2.jpg" alt="Code development">
+                            <img src="Assets/img/blog-3.jpg" alt="Team collaboration">
+                            <img src="Assets/img/blog-4.jpg" alt="Project results">
+                        </div>
+                        <div class="slider-controls">
+                            <button class="slider-prev"><i class="fas fa-chevron-left"></i></button>
+                            <button class="slider-next"><i class="fas fa-chevron-right"></i></button>
+                            <div class="slider-dots"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-date">May 18, 2025</span>
+                        <span class="blog-reading-time">8 min read</span>
+                        <span class="blog-category">Technology</span>
+                    </div>
+                    <h3 class="blog-title">Neuraq Launches Innovative Healthcare App Transforming Patient Management</h3>
+                    <p class="blog-excerpt">As the founder of Neuraq Technologies, I’m proud to announce the launch of our new healthcare mobile app—an innovation aimed at improving medical service delivery. It was officially launched at the “Arike” event in Malappuram and honored with a memento for our team’s contribution to healthcare....</p>
+                    <div class="blog-footer">
+                        <a href="blog/launch-app.html" id="launch-app-link" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
+                        <div class="blog-actions">
+                            <button class="bookmark-btn" aria-label="Bookmark article"><i class="far fa-bookmark"></i></button>
+                            <button class="share-btn" aria-label="Share article"><i class="fas fa-share-alt"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            
+
+            <!-- Featured Article -->
+            <article class="blog-card featured wow fadeInUp" data-category="technology">
+                <!-- <div class="blog-badge">Featured</div> -->
+                <div class="blog-media">
+                    <div class="image-slider">
+                        <div class="slider-container">
+                            <img src="Assets/img/blog-26.JPG" alt="Technology innovation" class="active">
+                            <img src="Assets/img/blog-27.jpg" alt="Code development">
+                            <img src="Assets/img/blog-28.jpg" alt="Team collaboration">
+                            <img src="Assets/img/blog-29.webp" alt="Project results">
+                        </div>
+                        <div class="slider-controls">
+                            <button class="slider-prev"><i class="fas fa-chevron-left"></i></button>
+                            <button class="slider-next"><i class="fas fa-chevron-right"></i></button>
+                            <div class="slider-dots"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-date">29 March 2025</span>
+                        <span class="blog-reading-time">8 min read</span>
+                        <span class="blog-category">Technology</span>
+                    </div>
+                    <h3 class="blog-title">I Participated in Perµte 2025 – A Celebration of Innovation and Community</h3>
+                    <p class="blog-excerpt">I had the incredible opportunity to participate in Perµte 2025, the flagship annual celebration by the µLearn Foundation held at Tagore Theatre, Trivandrum. With 5,000+ visitors, 100+ CEOs, and 50+ inspiring speakers, this event was a powerhouse of innovation, ideas, and connections...</p>
+                    <div class="blog-footer">
+                        <a href="blog/permute25.html" id="permute25-link" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
+                        <div class="blog-actions">
+                            <button class="bookmark-btn" aria-label="Bookmark article"><i class="far fa-bookmark"></i></button>
+                            <button class="share-btn" aria-label="Share article"><i class="fas fa-share-alt"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+           
+             <!-- Featured Article -->
+            <article class="blog-card featured wow fadeInUp" data-category="technology">
+                <!-- <div class="blog-badge">Featured</div> -->
+                <div class="blog-media">
+                    <div class="image-slider">
+                        <div class="slider-container">
+                            <img src="Assets/img/blog-5.JPG" alt="Technology innovation" class="active">
+                            <img src="Assets/img/blog-6.jpg" alt="Code development">
+                            <img src="Assets/img/blog-7.jpg" alt="Team collaboration">
+                            <img src="Assets/img/blog-8.jpg" alt="Project results">
+                        </div>
+                        <div class="slider-controls">
+                            <button class="slider-prev"><i class="fas fa-chevron-left"></i></button>
+                            <button class="slider-next"><i class="fas fa-chevron-right"></i></button>
+                            <div class="slider-dots"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-date">November 22,23, 2024</span>
+                        <span class="blog-reading-time">8 min read</span>
+                        <span class="blog-category">Technology</span>
+                    </div>
+                    <h3 class="blog-title">My Experience at GHCI 2025: A Celebration of Innovation & Inclusion in Tech</h3>
+                    <p class="blog-excerpt">Attending GHCI 2025 in Bengaluru was an inspiring experience filled with learning, networking, and innovation. As the founder of Neuraq Technologies, I had the opportunity to engage with brilliant minds, explore future tech trends, and contribute to conversations shaping the next era of technology....</p>
+                    <div class="blog-footer">
+                        <a href="blog/ghci25.html" id="ghci25-link" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
+                        <div class="blog-actions">
+                            <button class="bookmark-btn" aria-label="Bookmark article"><i class="far fa-bookmark"></i></button>
+                            <button class="share-btn" aria-label="Share article"><i class="fas fa-share-alt"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Featured Article -->
+            <article class="blog-card featured wow fadeInUp" data-category="technology">
+                <!-- <div class="blog-badge">Featured</div> -->
+                <div class="blog-media">
+                    <div class="image-slider">
+                        <div class="slider-container">
+                            <img src="Assets/img/blog-11.JPG" alt="Technology innovation" class="active">
+                            <img src="Assets/img/blog-9.jpg" alt="Code development">
+                            <img src="Assets/img/blog-12.jpg" alt="Team collaboration">
+                            <img src="Assets/img/blog-10.jpg" alt="Project results">
+                        </div>
+                        <div class="slider-controls">
+                            <button class="slider-prev"><i class="fas fa-chevron-left"></i></button>
+                            <button class="slider-next"><i class="fas fa-chevron-right"></i></button>
+                            <div class="slider-dots"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-date">June 13, 2025</span>
+                        <span class="blog-reading-time">8 min read</span>
+                        <span class="blog-category">Technology</span>
+                    </div>
+                    <h3 class="blog-title">Exploring the Future of AI at the Gen AI Exchange Program</h3>
+                    <p class="blog-excerpt">I recently took part in the Gen AI Exchange Program in Kochi, powered by Google Cloud at Kerala Startup Mission. It was a hands-on experience with live projects and expert-led sessions using tools like Vertex AI, Gemini, and Neo4j, offering valuable insights into building real-world Gen AI solutions...</p>
+                    <div class="blog-footer">
+                        <a href="blog/googlegenai.html" id="googlegenai-link" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
+                        <div class="blog-actions">
+                            <button class="bookmark-btn" aria-label="Bookmark article"><i class="far fa-bookmark"></i></button>
+                            <button class="share-btn" aria-label="Share article"><i class="fas fa-share-alt"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+           
+                        <!-- Featured Article -->
+            <article class="blog-card featured wow fadeInUp" data-category="technology">
+                <!-- <div class="blog-badge">Featured</div> -->
+                <div class="blog-media">
+                    <div class="image-slider">
+                        <div class="slider-container">
+                            <img src="Assets/img/blog-13.JPG" alt="Technology innovation" class="active">
+                            <img src="Assets/img/blog-16.jpg" alt="Code development">
+                            <img src="Assets/img/blog-14.jpg" alt="Team collaboration">
+                            <img src="Assets/img/blog-15.jpg" alt="Project results">
+                        </div>
+                        <div class="slider-controls">
+                            <button class="slider-prev"><i class="fas fa-chevron-left"></i></button>
+                            <button class="slider-next"><i class="fas fa-chevron-right"></i></button>
+                            <div class="slider-dots"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-date">November 23, 2024</span>
+                        <span class="blog-reading-time">8 min read</span>
+                        <span class="blog-category">Technology</span>
+                    </div>
+                    <h3 class="blog-title">Connecting with Changemakers at GHCI 2025 – Bengaluru</h3>
+                    <p class="blog-excerpt">Attending GHCI 2025 in Bengaluru was an eye-opening journey—not just for its rich content and technology sessions, but for the incredible people I met. As the founder of Neuraq Technologies, I often find that the most valuable insights come from real conversations—and this event was filled with them...</p>
+                    <div class="blog-footer">
+                        <a href="blog/ghci25.html" id="ghci25-link" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
+                        <div class="blog-actions">
+                            <button class="bookmark-btn" aria-label="Bookmark article"><i class="far fa-bookmark"></i></button>
+                            <button class="share-btn" aria-label="Share article"><i class="fas fa-share-alt"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+           
+            <!-- Featured Article -->
+            <article class="blog-card featured wow fadeInUp" data-category="technology">
+                <!-- <div class="blog-badge">Featured</div> -->
+                <div class="blog-media">
+                    <div class="image-slider">
+                        <div class="slider-container">
+                            <img src="Assets/img/blog-17.JPG" alt="Technology innovation" class="active">
+                            <img src="Assets/img/blog-17.jpg" alt="Code development">
+                            <img src="Assets/img/blog-17.jpg" alt="Team collaboration">
+                            <img src="Assets/img/blog-17.jpg" alt="Project results">
+                        </div>
+                        <div class="slider-controls">
+                            <button class="slider-prev"><i class="fas fa-chevron-left"></i></button>
+                            <button class="slider-next"><i class="fas fa-chevron-right"></i></button>
+                            <div class="slider-dots"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-date">October 26, 2024</span>
+                        <span class="blog-reading-time">8 min read</span>
+                        <span class="blog-category">Technology</span>
+                    </div>
+                    <h3 class="blog-title">Speaking at TinkerDay Malappuram – Igniting Ideas, Fueling Innovation</h3>
+                    <p class="blog-excerpt">On October 26, 2024, I had the honor of being a speaker at TinkerDay Malappuram, held at Zil Money HQ, Manjeri—an inspiring event that brought together creative minds, changemakers, and future innovators under one roof for a day filled with powerful stories, fresh ideas, and meaningful conversations...</p>
+                    <div class="blog-footer">
+                        <a href="blog/tinkerday-mlp.html" id="tinkerday-mlp-link" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
+                        <div class="blog-actions">
+                            <button class="bookmark-btn" aria-label="Bookmark article"><i class="far fa-bookmark"></i></button>
+                            <button class="share-btn" aria-label="Share article"><i class="fas fa-share-alt"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+
+              <!-- Featured Article -->
+            <article class="blog-card featured wow fadeInUp" data-category="technology">
+                <!-- <div class="blog-badge">Featured</div> -->
+                <div class="blog-media">
+                    <div class="image-slider">
+                        <div class="slider-container">
+                            <img src="Assets/img/blog-18.JPG" alt="Technology innovation" class="active">
+                            <img src="Assets/img/blog-19.jpg" alt="Code development">
+                            <img src="Assets/img/blog-20.jpg" alt="Team collaboration">
+                            <img src="Assets/img/blog-21.jpg" alt="Project results">
+                        </div>
+                        <div class="slider-controls">
+                            <button class="slider-prev"><i class="fas fa-chevron-left"></i></button>
+                            <button class="slider-next"><i class="fas fa-chevron-right"></i></button>
+                            <div class="slider-dots"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-date">December 14-15, 2024</span>
+                        <span class="blog-reading-time">8 min read</span>
+                        <span class="blog-category">Technology</span>
+                    </div>
+                    <h3 class="blog-title">TinkerSpace Carnival – One Year of Innovation, Creativity & Community</h3>
+                    <p class="blog-excerpt">On the vibrant grounds of TinkerSpace, we came together to celebrate something truly special—one full year of building, tinkering, and growing together. The TinkerSpace Carnival wasn’t just a party; it was a heartfelt tribute to the spirit of innovation and the beautiful community that made it all possible...</p>
+                    <div class="blog-footer">
+                        <a href="blog/tinker-carnival.html" id="tinker-carnival-link"  class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
+                        <div class="blog-actions">
+                            <button class="bookmark-btn" aria-label="Bookmark article"><i class="far fa-bookmark"></i></button>
+                            <button class="share-btn" aria-label="Share article"><i class="fas fa-share-alt"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+    
+     <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="#home" class="brand-logo">Shaheen<span>Kuzhiyengal</span></a>
+                <p class="footer-tagline">Tech-Driven Innovator | Building Future-Ready Vision</p>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                   
+                    <li><a href="blog.html">Blog</a></li>
+                    
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-legal">
+                <p>&copy; <span id="current-year"></span> <a href="https://neuraq.in/"> Neuraq Technologiess</a> All rights reserved.</p>
+                <!-- <ul class="legal-links">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                </ul> -->
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script>
+        // Blog Section Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Filter blog posts
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const blogCards = document.querySelectorAll('.blog-card');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Update active button
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            const filterValue = button.dataset.filter;
+            
+            // Filter cards
+            blogCards.forEach(card => {
+                if (filterValue === 'all' || card.dataset.category === filterValue) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+    
+    // Initialize image sliders
+    const imageSliders = document.querySelectorAll('.image-slider');
+    
+    imageSliders.forEach(slider => {
+        const container = slider.querySelector('.slider-container');
+        const images = container.querySelectorAll('img');
+        const prevBtn = slider.querySelector('.slider-prev');
+        const nextBtn = slider.querySelector('.slider-next');
+        const dotsContainer = slider.querySelector('.slider-dots');
+        let currentIndex = 0;
+        
+        // Create dots
+        images.forEach((_, index) => {
+            const dot = document.createElement('span');
+            dot.classList.add('slider-dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(index));
+            dotsContainer.appendChild(dot);
+        });
+        
+        const dots = dotsContainer.querySelectorAll('.slider-dot');
+        
+        // Set initial active image
+        images[0].classList.add('active');
+        
+        // Previous button
+        prevBtn.addEventListener('click', () => {
+            goToSlide(currentIndex > 0 ? currentIndex - 1 : images.length - 1);
+        });
+        
+        // Next button
+        nextBtn.addEventListener('click', () => {
+            goToSlide(currentIndex < images.length - 1 ? currentIndex + 1 : 0);
+        });
+        
+        // Go to specific slide
+        function goToSlide(index) {
+            images[currentIndex].classList.remove('active');
+            dots[currentIndex].classList.remove('active');
+            
+            currentIndex = index;
+            
+            images[currentIndex].classList.add('active');
+            dots[currentIndex].classList.add('active');
+        }
+        
+        // Auto-advance slides
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            let slideInterval = setInterval(() => {
+                goToSlide(currentIndex < images.length - 1 ? currentIndex + 1 : 0);
+            }, 5000);
+            
+            // Pause on hover
+            slider.addEventListener('mouseenter', () => {
+                clearInterval(slideInterval);
+            });
+            
+            slider.addEventListener('mouseleave', () => {
+                slideInterval = setInterval(() => {
+                    goToSlide(currentIndex < images.length - 1 ? currentIndex + 1 : 0);
+                }, 5000);
+            });
+        }
+    });
+    
+    // Bookmark functionality
+    const bookmarkButtons = document.querySelectorAll('.bookmark-btn');
+    
+    bookmarkButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            button.classList.toggle('active');
+            button.innerHTML = button.classList.contains('active') ? 
+                '<i class="fas fa-bookmark"></i>' : '<i class="far fa-bookmark"></i>';
+            
+            // In a real implementation, you would save this to localStorage or a database
+        });
+    });
+    
+    // Share functionality
+    const shareButtons = document.querySelectorAll('.share-btn');
+    
+    shareButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            const card = button.closest('.blog-card');
+            const title = card.querySelector('.blog-title').textContent;
+            const url = card.querySelector('.read-more').getAttribute('href');
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: title,
+                    url: url
+                }).catch(err => {
+                    console.log('Error sharing:', err);
+                });
+            } else {
+                // Fallback for browsers that don't support Web Share API
+                const shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(window.location.origin + url)}`;
+                window.open(shareUrl, '_blank');
+            }
+        });
+    });
+    
+    // Subscription form
+    const subscribeForm = document.querySelector('.subscribe-form');
+    
+    if (subscribeForm) {
+        subscribeForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const emailInput = this.querySelector('input[type="email"]');
+            const email = emailInput.value.trim();
+            
+            if (email) {
+                // In a real implementation, you would send this to your backend
+                console.log('Subscribed email:', email);
+                emailInput.value = '';
+                alert('Thank you for subscribing!');
+            }
+        });
+    }
+});
+    </script>
+    <!-- Main JavaScript File -->
+    <script src="js/main.js"></script>
+    
+    <!-- Initialize WOW.js for animations -->
+    <script>
+        new WOW().init();
+    </script>
+</body>
+</html>

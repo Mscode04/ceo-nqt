@@ -339,11 +339,23 @@
 }
     </style>
 </head>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelector("#contact-link a").href = "contact.html";
+    document.querySelector("#blog-link a").href = "blog.html";
+    document.querySelector("#tinkerday-mlp-link a").href = "tinkerday-mlp.html";
+    document.querySelector("#tinker-carnival-link a").href = "tinker-carnival.html";
+    document.querySelector("#permute25-link a").href = "permute25.html";
+    document.querySelector("#launch-app-link a").href = "launch-app.html";
+    document.querySelector("#googlegenai-link a").href = "googlegenai.html";
+    document.querySelector("#ghci25-link a").href = "ghci25.html";
+  });
+</script>
 <body class="dark-theme">
     <!-- Floating Chatbot Button -->
-    <button id="chatbot-button" class="floating-button" aria-label="Open chatbot">
+    <!-- <button id="chatbot-button" class="floating-button" aria-label="Open chatbot">
         <i class="fas fa-robot"></i>
-    </button>
+    </button> -->
     
     <!-- Navigation -->
     <nav class="main-nav">
@@ -355,11 +367,9 @@
                 <span class="line"></span>
             </button>
             <ul class="nav-links">
-                <li><a href="#about" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#blog" class="nav-link">Blog</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="blog.html" class="nav-link" id="blog-link">Blog</a></li>
+                <li><a href="contact.html" class="nav-link" id="contact-link">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -368,10 +378,10 @@
     <header id="home" class="hero-section">
         <div class="hero-content">
             <h1 class="hero-title wow fadeInUp">Hi, I'm <span>Shaheen Kuzhiyengal</span></h1>
-            <p class="hero-subtitle wow fadeInUp" data-wow-delay="0.2s">Professional Tagline Goes Here</p>
+            <p class="hero-subtitle wow fadeInUp" data-wow-delay="0.2s">Tech-Driven Innovator | Building Future-Ready Vision</p>
             <div class="hero-cta wow fadeInUp" data-wow-delay="0.4s">
-                <a href="#about" class="btn btn-primary">Explore My Work</a>
-                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                <a href="blog.html" class="btn btn-primary" style="transition: color 0.3s ease !important; color: inherit !important;" onmouseover="this.style.color='white !important'" onmouseout="this.style.color='inherit !important'">Explore Blogs</a>
+                <a href="contact.html" class="btn btn-secondary">Get In Touch</a>
             </div>
         </div>
         <div class="scroll-indicator">
@@ -385,12 +395,14 @@
             <h2 class="section-title wow fadeInUp">About <span>Me</span></h2>
             <div class="about-content">
                 <div class="about-image wow fadeInLeft">
-                    <img src="assets/profile.jpg" alt="Your Name" class="profile-img">
+                    <img src="Assets/img/about.png" alt="Your Name" class="profile-img">
                 </div>
                 <div class="about-text wow fadeInRight">
                     <h3>Who I Am</h3>
-                    <p>Your professional introduction goes here. Highlight your expertise, passion, and what makes you unique in your field.</p>
-                    <p>Add more details about your background, skills, and professional philosophy. Keep it concise but impactful.</p>
+                    <p><strong>Professional Mission</strong></p>
+                    <p>I’m Mohammed Shaheen KP, a tech entrepreneur and content creator pursuing a data science degree at IIT Madras. As the founder of Neuraq Technologies in Kozhikode, Kerala, I lead a team innovating with MERN stack, Python Django, and AI to build transformative software solutions for startups and enterprises.</p>
+                    <p><strong>Community Impact</strong></p>
+                    <p>As an innovator and mentor, I empower aspiring tech talent through Astrobyte Academy and TinkerHub collaborations. By creating engaging content and offering hands-on learning, I foster an inclusive tech ecosystem, driving the next generation to shape a future-ready world.</p>
                 </div>
             </div>
         </div>
@@ -400,30 +412,30 @@
 <section id="blog" class="section blog-section bg-dark">
     <div class="section-container">
         <div class="section-header">
-            <h2 class="section-title wow fadeInUp">Insights & <span>Articles</span></h2>
-            <p class="section-subtitle wow fadeInUp" data-wow-delay="0.2s">Professional perspectives and industry analysis</p>
+            <h2 class="section-title wow fadeInUp">Insights & <span>Blogs</span></h2>
+            <p class="section-subtitle wow fadeInUp" data-wow-delay="0.2s">Where innovation is imagined, refined, and shared</p>
             <div class="section-divider"></div>
         </div>
         
-        <div class="blog-filters wow fadeInUp" data-wow-delay="0.3s">
+        <!-- <div class="blog-filters wow fadeInUp" data-wow-delay="0.3s">
             <button class="filter-btn active" data-filter="all">All Topics</button>
             <button class="filter-btn" data-filter="technology">Technology</button>
             <button class="filter-btn" data-filter="leadership">Leadership</button>
             <button class="filter-btn" data-filter="industry">Industry Trends</button>
             <button class="filter-btn" data-filter="case-studies">Case Studies</button>
-        </div>
+        </div> -->
         
         <div class="blog-grid">
-            <!-- Featured Article -->
+             <!-- Featured Article -->
             <article class="blog-card featured wow fadeInUp" data-category="technology">
-                <div class="blog-badge">Featured</div>
+                <!-- <div class="blog-badge">Featured</div> -->
                 <div class="blog-media">
                     <div class="image-slider">
                         <div class="slider-container">
-                            <img src="https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?cs=srgb&dl=pexels-souvenirpixels-414612.jpg&fm=jpg" alt="Technology innovation" class="active">
-                            <img src="https://media.istockphoto.com/id/154948874/photo/crescent-moon-on-twilight-sky.jpg?s=612x612&w=0&k=20&c=6gC3s9SQpmdob4P2WKkmRfk6w4NGw8zqccsh5kaORXQ=" alt="Code development">
-                            <img src="https://static.vecteezy.com/system/resources/thumbnails/036/324/708/small/ai-generated-picture-of-a-tiger-walking-in-the-forest-photo.jpg" alt="Team collaboration">
-                            <img src="https://static.vecteezy.com/system/resources/thumbnails/047/507/397/small/colourful-tiny-finch-stands-on-a-branch-birdgraphy-free-photo.jpg" alt="Project results">
+                            <img src="Assets/img/blog-1.JPG" alt="Technology innovation" class="active">
+                            <img src="Assets/img/blog-2.jpg" alt="Code development">
+                            <img src="Assets/img/blog-3.jpg" alt="Team collaboration">
+                            <img src="Assets/img/blog-4.jpg" alt="Project results">
                         </div>
                         <div class="slider-controls">
                             <button class="slider-prev"><i class="fas fa-chevron-left"></i></button>
@@ -434,14 +446,14 @@
                 </div>
                 <div class="blog-content">
                     <div class="blog-meta">
-                        <span class="blog-date">June 15, 2023</span>
+                        <span class="blog-date">May 18, 2025</span>
                         <span class="blog-reading-time">8 min read</span>
                         <span class="blog-category">Technology</span>
                     </div>
-                    <h3 class="blog-title">Emerging Technologies That Will Transform Business in 2023</h3>
-                    <p class="blog-excerpt">An in-depth analysis of the top 5 technological innovations that are poised to disrupt industries and create new opportunities for forward-thinking organizations...</p>
+                    <h3 class="blog-title">Neuraq Launches Innovative Healthcare App Transforming Patient Management</h3>
+                    <p class="blog-excerpt">As the founder of Neuraq Technologies, I’m proud to announce the launch of our new healthcare mobile app—an innovation aimed at improving medical service delivery. It was officially launched at the “Arike” event in Malappuram and honored with a memento for our team’s contribution to healthcare....</p>
                     <div class="blog-footer">
-                        <a href="blog/emerging-technologies.html" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
+                        <a href="blog/launch-app.html" id="launch-app-link" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
                         <div class="blog-actions">
                             <button class="bookmark-btn" aria-label="Bookmark article"><i class="far fa-bookmark"></i></button>
                             <button class="share-btn" aria-label="Share article"><i class="fas fa-share-alt"></i></button>
@@ -449,22 +461,37 @@
                     </div>
                 </div>
             </article>
-            
-            <!-- Article 2 -->
-            <article class="blog-card wow fadeInUp" data-wow-delay="0.1s" data-category="leadership">
+
+
+
+            <!-- Featured Article -->
+            <article class="blog-card featured wow fadeInUp" data-category="technology">
+                <!-- <div class="blog-badge">Featured</div> -->
                 <div class="blog-media">
-                    <img src="assets/blog/post2/cover.jpg" alt="Leadership in tech" loading="lazy">
+                    <div class="image-slider">
+                        <div class="slider-container">
+                            <img src="Assets/img/blog-5.JPG" alt="Technology innovation" class="active">
+                            <img src="Assets/img/blog-6.jpg" alt="Code development">
+                            <img src="Assets/img/blog-7.jpg" alt="Team collaboration">
+                            <img src="Assets/img/blog-8.jpg" alt="Project results">
+                        </div>
+                        <div class="slider-controls">
+                            <button class="slider-prev"><i class="fas fa-chevron-left"></i></button>
+                            <button class="slider-next"><i class="fas fa-chevron-right"></i></button>
+                            <div class="slider-dots"></div>
+                        </div>
+                    </div>
                 </div>
                 <div class="blog-content">
                     <div class="blog-meta">
-                        <span class="blog-date">May 28, 2023</span>
-                        <span class="blog-reading-time">6 min read</span>
-                        <span class="blog-category">Leadership</span>
+                        <span class="blog-date">November 22,23, 2024</span>
+                        <span class="blog-reading-time">8 min read</span>
+                        <span class="blog-category">Technology</span>
                     </div>
-                    <h3 class="blog-title">Building High-Performance Teams in Remote Work Environments</h3>
-                    <p class="blog-excerpt">Key strategies for fostering collaboration, maintaining productivity, and preserving company culture when your team is distributed across locations...</p>
+                    <h3 class="blog-title">My Experience at GHCI 2025: A Celebration of Innovation & Inclusion in Tech</h3>
+                    <p class="blog-excerpt">Attending GHCI 2025 in Bengaluru was an inspiring experience filled with learning, networking, and innovation. As the founder of Neuraq Technologies, I had the opportunity to engage with brilliant minds, explore future tech trends, and contribute to conversations shaping the next era of technology....</p>
                     <div class="blog-footer">
-                        <a href="blog/high-performance-teams.html" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
+                        <a href="blog/ghci25.html"  id="ghci25-link" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
                         <div class="blog-actions">
                             <button class="bookmark-btn" aria-label="Bookmark article"><i class="far fa-bookmark"></i></button>
                             <button class="share-btn" aria-label="Share article"><i class="fas fa-share-alt"></i></button>
@@ -472,22 +499,35 @@
                     </div>
                 </div>
             </article>
-            
-            <!-- Article 3 -->
-            <article class="blog-card wow fadeInUp" data-wow-delay="0.2s" data-category="industry">
+           
+            <!-- Featured Article -->
+            <article class="blog-card featured wow fadeInUp" data-category="technology">
+                <!-- <div class="blog-badge">Featured</div> -->
                 <div class="blog-media">
-                    <img src="assets/blog/post3/cover.jpg" alt="Industry trends" loading="lazy">
+                    <div class="image-slider">
+                        <div class="slider-container">
+                            <img src="Assets/img/blog-11.JPG" alt="Technology innovation" class="active">
+                            <img src="Assets/img/blog-9.jpg" alt="Code development">
+                            <img src="Assets/img/blog-12.jpg" alt="Team collaboration">
+                            <img src="Assets/img/blog-10.jpg" alt="Project results">
+                        </div>
+                        <div class="slider-controls">
+                            <button class="slider-prev"><i class="fas fa-chevron-left"></i></button>
+                            <button class="slider-next"><i class="fas fa-chevron-right"></i></button>
+                            <div class="slider-dots"></div>
+                        </div>
+                    </div>
                 </div>
                 <div class="blog-content">
                     <div class="blog-meta">
-                        <span class="blog-date">April 12, 2023</span>
-                        <span class="blog-reading-time">10 min read</span>
-                        <span class="blog-category">Industry Trends</span>
+                        <span class="blog-date">June 13, 2025</span>
+                        <span class="blog-reading-time">8 min read</span>
+                        <span class="blog-category">Technology</span>
                     </div>
-                    <h3 class="blog-title">The Future of Digital Transformation: 2023 Industry Outlook</h3>
-                    <p class="blog-excerpt">Comprehensive analysis of how digital transformation priorities are shifting across sectors, with actionable insights for executives...</p>
+                    <h3 class="blog-title">Exploring the Future of AI at the Gen AI Exchange Program</h3>
+                    <p class="blog-excerpt">I recently took part in the Gen AI Exchange Program in Kochi, powered by Google Cloud at Kerala Startup Mission. It was a hands-on experience with live projects and expert-led sessions using tools like Vertex AI, Gemini, and Neo4j, offering valuable insights into building real-world Gen AI solutions...</p>
                     <div class="blog-footer">
-                        <a href="blog/digital-transformation.html" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
+                        <a href="blog/googlegenai.html" id="googlegenai-link" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
                         <div class="blog-actions">
                             <button class="bookmark-btn" aria-label="Bookmark article"><i class="far fa-bookmark"></i></button>
                             <button class="share-btn" aria-label="Share article"><i class="fas fa-share-alt"></i></button>
@@ -495,9 +535,10 @@
                     </div>
                 </div>
             </article>
+           
             
             <!-- Article 4 (hidden until filtered) -->
-            <article class="blog-card wow fadeInUp" data-wow-delay="0.3s" data-category="case-studies">
+            <!-- <article class="blog-card wow fadeInUp" data-wow-delay="0.3s" data-category="case-studies">
                 <div class="blog-media">
                     <img src="assets/blog/post4/cover.jpg" alt="Case study" loading="lazy">
                 </div>
@@ -517,17 +558,17 @@
                         </div>
                     </div>
                 </div>
-            </article>
+            </article> -->
         </div>
         
         <div class="blog-cta wow fadeInUp">
-            <p class="cta-text">Stay updated with the latest insights</p>
+            <!-- <p class="cta-text">Stay updated with the latest insights</p>
             <form class="subscribe-form">
                 <input type="email" placeholder="Your professional email" required>
                 <button type="submit" class="btn btn-primary">Subscribe</button>
-            </form>
+            </form> -->
             <div class="view-all-container">
-                <a href="blog/" class="btn btn-outline">Browse All Articles</a>
+                <a href="blog.html" class="btn btn-outline">Browse All Articles</a>
             </div>
         </div>
     </div>
@@ -544,44 +585,46 @@
                     <!-- Timeline Item -->
                     <div class="timeline-item wow fadeInUp">
                         <div class="timeline-content">
-                            <div class="timeline-date">2021 - Present</div>
-                            <h3 class="timeline-title">Current Position</h3>
-                            <h4 class="timeline-company">Company Name</h4>
-                            <p class="timeline-description">Detailed description of your role, achievements, and responsibilities in this position.</p>
-                            <div class="timeline-skills">
-                                <span>Skill 1</span>
-                                <span>Skill 2</span>
-                                <span>Skill 3</span>
-                            </div>
+                      <div class="timeline-date">Jan 2024 - Present</div>
+  <h3 class="timeline-title">CEO & Founder</h3>
+  <h4 class="timeline-company">Neuraq Technologies · Hybrid</h4>
+  <p class="timeline-description">
+    Founded and currently lead Neuraq Technologies, overseeing strategic planning, product innovation, team development, and client engagement. Also established The Neuraq Tech Community (NTC) to strengthen the local tech ecosystem.
+  </p>
                         </div>
                     </div>
                     
                     <!-- Timeline Item -->
                     <div class="timeline-item wow fadeInUp" data-wow-delay="0.1s">
                         <div class="timeline-content">
-                            <div class="timeline-date">2018 - 2021</div>
-                            <h3 class="timeline-title">Previous Position</h3>
-                            <h4 class="timeline-company">Previous Company</h4>
-                            <p class="timeline-description">Key accomplishments and responsibilities from this role that are relevant to your professional narrative.</p>
-                            <div class="timeline-skills">
-                                <span>Skill 4</span>
-                                <span>Skill 5</span>
-                                <span>Skill 6</span>
-                            </div>
+  <div class="timeline-date">Feb 2025 - Feb 2029</div>
+  <h3 class="timeline-title">Bachelor of Science at IIT Madras</h3>
+  <h4 class="timeline-company">Indian Institute of Technology, Madras</h4>
+  <p class="timeline-description">
+    Pursuing Data Science with a focus on machine learning, data analytics, and AI. Actively participating in hackathons, research projects, and open-source contributions while building skills in Python, R, SQL, and TensorFlow.
+  </p>
                         </div>
                     </div>
                     
                     <!-- Timeline Item -->
                     <div class="timeline-item wow fadeInUp" data-wow-delay="0.2s">
                         <div class="timeline-content">
-                            <div class="timeline-date">2015 - 2018</div>
-                            <h3 class="timeline-title">Earlier Career Role</h3>
-                            <h4 class="timeline-company">Another Company</h4>
-                            <p class="timeline-description">Highlight how this position contributed to your professional growth and development.</p>
-                            <div class="timeline-skills">
-                                <span>Skill 7</span>
-                                <span>Skill 8</span>
-                            </div>
+  <div class="timeline-date">Nov 2024 - Feb 2025</div>
+  <h3 class="timeline-title">Python Full Stack Developer (Intern)</h3>
+  <h4 class="timeline-company">Inmakes Infotech Pvt Ltd · Internship</h4>
+  <p class="timeline-description">
+    Contributed to backend and frontend development using Django, Python, HTML, CSS, and Bootstrap. Collaborated on scalable applications, integrated RESTful APIs, and optimized database performance.
+  </p>
+                        </div>
+                    </div>
+                    <!-- Timeline Item -->
+                    <div class="timeline-item wow fadeInUp" data-wow-delay="0.2s">
+  <div class="timeline-date">Mar 2024 - Dec 2024</div>
+  <h3 class="timeline-title">Software Developer (MERN Stack)</h3>
+  <h4 class="timeline-company">Astrobyte Academy · On-site</h4>
+  <p class="timeline-description">
+    Developed scalable web apps using the MERN stack. Focused on creating intuitive user experiences, optimizing backend performance, and collaborating across teams to build real-world solutions.
+  </p>
                         </div>
                     </div>
                     
@@ -606,15 +649,15 @@
                     <ul class="contact-methods">
                         <li>
                             <i class="fas fa-envelope"></i>
-                            <a href="mailto:your.email@example.com">your.email@example.com</a>
+                            <a href="mailto:hello@shaheen.in">hello@shaheen.in</a>
                         </li>
                         <li>
                             <i class="fas fa-phone"></i>
-                            <a href="tel:+1234567890">+1 (234) 567-890</a>
+                            <a href="tel:918157980307">91 81579 80307</a>
                         </li>
                         <li>
                             <i class="fas fa-map-marker-alt"></i>
-                            <span>Your City, Country</span>
+                            <span>Makkaraparamba, Malappuram, Kerala</span>
                         </li>
                     </ul>
                     
@@ -622,41 +665,41 @@
                         <h4>Follow Me</h4>
                         <ul>
                             <li>
-                                <a href="#" target="_blank" aria-label="LinkedIn">
+                                <a href="https://www.linkedin.com/in/shaheenkp/" target="_blank" aria-label="LinkedIn">
                                     <i class="fab fa-linkedin-in"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" target="_blank" aria-label="Twitter">
-                                    <i class="fab fa-twitter"></i>
+                                <a href="https://x.com/Msk012005" target="_blank" aria-label="Twitter">
+                                    <i class="fab fa-x"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" target="_blank" aria-label="GitHub">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" target="_blank" aria-label="Instagram">
+                                <a href="https://www.instagram.com/___zcl3_/" target="_blank" aria-label="Instagram">
                                     <i class="fab fa-instagram"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" target="_blank" aria-label="Medium">
-                                    <i class="fab fa-medium-m"></i>
+                                <a href="https://wa.me/918157980307" target="_blank" aria-label="GitHub">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com/neuraq.in" target="_blank" aria-label="Medium">
+                                    <i class="fab fa-instagram"></i>
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </div>
                 
-                <div class="contact-map wow fadeInRight">
-                    <!-- Optional: Embed a map here -->
-                    <div class="map-placeholder">
-                        <i class="fas fa-map-marked-alt"></i>
-                        <p>Map would be displayed here</p>
-                    </div>
-                </div>
+              <div class="contact-map wow fadeInRight">
+    <div class="map-placeholder">
+        <i class="fas fa-map-marked-alt"></i>
+        <p><a href="https://maps.app.goo.gl/q3SnF1XWHkVTrFme8" target="_blank">View Location on Google Maps</a></p>
+    </div>
+</div>
+
             </div>
         </div>
     </section>
@@ -665,26 +708,26 @@
     <footer class="main-footer">
         <div class="footer-container">
             <div class="footer-brand">
-                <a href="#home" class="brand-logo">Your<span>Name</span></a>
-                <p class="footer-tagline">Professional tagline or motto</p>
+                <a href="#home" class="brand-logo">Shaheen<span>Kuzhiyengal</span></a>
+                <p class="footer-tagline">Tech-Driven Innovator | Building Future-Ready Vision</p>
             </div>
             
             <div class="footer-links">
                 <h4>Quick Links</h4>
                 <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#blog">Blog</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                   
+                    <li><a href="blog.html">Blog</a></li>
+                    
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
             
             <div class="footer-legal">
-                <p>&copy; <span id="current-year"></span> Your Name. All rights reserved.</p>
-                <ul class="legal-links">
+                <p>&copy; <span id="current-year"></span> <a href="https://neuraq.in/"> Neuraq Technologiess</a> All rights reserved.</p>
+                <!-- <ul class="legal-links">
                     <li><a href="#">Privacy Policy</a></li>
                     <li><a href="#">Terms of Use</a></li>
-                </ul>
+                </ul> -->
             </div>
         </div>
     </footer>

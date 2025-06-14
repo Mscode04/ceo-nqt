@@ -411,6 +411,7 @@ ul, ol {
 
 .profile-img {
   border-radius: var(--radius-md);
+  width: 2000px;
   box-shadow: var(--shadow-lg);
   transition: transform var(--transition-medium);
 }

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Poermute: Where Passion Meets Opportunity | Shaheen KP</title>
+  <style>
+    :root {
+      --primary-color: #0a0a0a;
+      --secondary-color: #1a1a1a;
+      --accent-color: #00bfa6;
+      --text-color: #f0f0f0;
+      --text-secondary: #b0b0b0;
+      --card-bg: #1e1e1e;
+      --border-color: #333;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--primary-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .blog-header {
+      padding: 4rem 0 2rem;
+      text-align: center;
+      background: linear-gradient(rgba(10,10,10,0.9), rgba(10,10,10,0.9)), url('Assets/img/poermute-hero.jpg') center/cover;
+    }
+
+    .blog-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .blog-meta {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    .blog-content {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 0 20px;
+    }
+
+    .blog-image {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin: 2rem 0;
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+      margin: 2rem 0;
+    }
+
+    .image-grid img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    .blog-footer {
+      border-top: 1px solid var(--border-color);
+      padding: 2rem 0;
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    .action-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      padding: 0.6rem 1.2rem;
+      border-radius: 4px;
+      font-weight: 500;
+      cursor: pointer;
+      border: 1px solid var(--accent-color);
+      background: transparent;
+      color: var(--accent-color);
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background: var(--accent-color);
+      color: white;
+    }
+
+    @media print {
+      .no-print {
+        display: none;
+      }
+
+      body {
+        background: white;
+        color: black;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="blog-header">
+    <div class="container">
+      <h1 class="blog-title">🚀 Poermute: Where Passion Meets Opportunity</h1>
+      <div class="blog-meta">
+        <span>📅 March 29, 2025</span>
+        <span>⏱ 3 min read</span>
+        <span>🏷 Innovation, Career</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="blog-content">
+    <img src="/Assets/img/blog-26.jpg" alt="Poermute community event banner" class="blog-image" />
+
+    <h2>Redefining the Future of Talent & Technology</h2>
+
+    <p><strong>Poermute</strong> isn't just a platform — it’s a movement that bridges the gap between talent and opportunity. We’re here to empower dreamers, builders, coders, creators, and leaders to find their spark and follow it fearlessly.</p>
+
+    <p>Launched with the vision of creating a future where potential doesn’t go unnoticed, Poermute is building a space where learning meets doing, and effort meets recognition. Whether you’re looking to build your first project, join a mission-driven team, or kickstart your career in tech — Poermute is your launchpad.</p>
+
+    <div class="image-grid">
+      <img src="/Assets/img/blog-28.jpg" alt="Team brainstorming at Poermute event" />
+      <img src="/Assets/img/blog-29.webp" alt="Developer coding session at Poermute hub" />
+    </div>
+
+    <h3>🌱 What Makes Poermute Different?</h3>
+    <ul>
+      <li>💡 Hands-on mentorship from industry leaders</li>
+      <li>📈 Real-world project experiences</li>
+      <li>🌍 Community-driven networking & growth</li>
+      <li>🎯 Skill-building events, bootcamps, and challenges</li>
+    </ul>
+
+    <p>We believe in the power of small beginnings and strong communities. That’s why our focus is on nurturing talent from the grassroots — from small towns, local institutes, and aspiring developers who just need a platform to shine.</p>
+
+    <img src="/Assets/img/blog-27.jpg" alt="Young talents working on startup ideas at Poermute" class="blog-image" />
+
+    <p>💬 “The energy at Poermute events is unmatched. It's not about who's the best — it's about who’s willing to learn, grow, and build together.”</p>
+
+    <p>Join us, and let’s create a world where talent finds its true destination. Because at Poermute, **your passion deserves a stage**.</p>
+
+    <footer class="blog-footer">
+      <div class="action-buttons no-print">
+        <button class="btn" onclick="window.print()">🖨 Print Article</button>
+        <button class="btn" id="shareBtn">🔗 Share This Page</button>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Web Share API with clipboard fallback
+    document.getElementById('shareBtn').addEventListener('click', async () => {
+      const shareData = {
+        title: document.title,
+        text: "Check out this blog about Poermute — where passion meets opportunity!",
+        url: window.location.href,
+      };
+
+      if (navigator.share) {
+        try {
+          await navigator.share(shareData);
+        } catch (err) {
+          console.error("Sharing failed:", err);
+        }
+      } else {
+        try {
+          await navigator.clipboard.writeText(window.location.href);
+          alert("🔗 Link copied to clipboard!");
+        } catch (err) {
+          alert("❌ Failed to copy link.");
+        }
+      }
+    });
+  </script>
+</body>
+</html>
