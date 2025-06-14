@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name | Professional Portfolio</title>
+    <meta name="description" content="Premium portfolio showcasing my professional work and blog">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="demo.css" as="style">
+    <link rel="preload" href="demo.js" as="script">
+    
+    <!-- CSS (will be requested separately) -->
+    <link rel="stylesheet" href="demo.css">
+</head>
+<body class="dark-theme">
+    <!-- Floating Chatbot Button -->
+    <button id="chatbot-button" class="floating-button" aria-label="Open chatbot">
+        <i class="fas fa-robot"></i>
+    </button>
+    
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="#home" class="brand-logo">Your<span>Name</span></a>
+            <button class="hamburger" aria-label="Menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#blog" class="nav-link">Blog</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <header id="home" class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title wow fadeInUp">Hello, I'm <span>Your Name</span></h1>
+            <p class="hero-subtitle wow fadeInUp" data-wow-delay="0.2s">Professional [Your Title]</p>
+            <div class="hero-cta wow fadeInUp" data-wow-delay="0.4s">
+                <a href="#about" class="btn btn-primary">Explore My Work</a>
+                <a href="#contact" class="btn btn-outline">Get In Touch</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="mouse"></div>
+        </div>
+    </header>
+    
+    <!-- About Section -->
+    <section id="about" class="section about-section">
+        <div class="container">
+            <h2 class="section-title wow fadeInUp">About <span>Me</span></h2>
+            <div class="about-grid">
+                <div class="about-image wow fadeInLeft">
+                    <div class="image-wrapper">
+                        <img src="assets/profile.jpg" alt="Your Name" class="profile-img">
+                        <div class="image-overlay"></div>
+                    </div>
+                </div>
+                <div class="about-content wow fadeInRight">
+                    <h3>Who I Am</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <div class="skills">
+                        <h4>My Skills</h4>
+                        <ul class="skills-list">
+                            <li class="skill-item">
+                                <span class="skill-name">Web Development</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-level="90%"></div>
+                                </div>
+                            </li>
+                            <li class="skill-item">
+                                <span class="skill-name">UI/UX Design</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-level="85%"></div>
+                                </div>
+                            </li>
+                            <li class="skill-item">
+                                <span class="skill-name">Photography</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-level="75%"></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Blog Section -->
+    <section id="blog" class="section blog-section">
+        <div class="container">
+            <h2 class="section-title wow fadeInUp">Latest <span>Posts</span></h2>
+            <p class="section-subtitle wow fadeInUp" data-wow-delay="0.2s">Insights and thoughts from my professional journey</p>
+            
+            <div class="blog-grid">
+                <!-- Featured Blog Post (with multiple images) -->
+                <article class="blog-card featured wow fadeInUp">
+                    <div class="blog-media">
+                        <div class="image-grid">
+                            <div class="grid-item main-image">
+                                <img src="assets/blog/post1-1.jpg" alt="Blog post image 1">
+                            </div>
+                            <div class="grid-item secondary-image">
+                                <img src="assets/blog/post1-2.jpg" alt="Blog post image 2">
+                            </div>
+                            <div class="grid-item secondary-image">
+                                <img src="assets/blog/post1-3.jpg" alt="Blog post image 3">
+                            </div>
+                        </div>
+                        <div class="image-carousel" style="display: none;">
+                            <div class="carousel-slide active">
+                                <img src="assets/blog/post1-1.jpg" alt="Blog post image 1">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="assets/blog/post1-2.jpg" alt="Blog post image 2">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="assets/blog/post1-3.jpg" alt="Blog post image 3">
+                            </div>
+                            <button class="carousel-prev" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+                            <button class="carousel-next" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                        <button class="view-toggle" aria-label="Toggle view mode">
+                            <i class="fas fa-th" data-view="grid"></i>
+                            <i class="fas fa-sliders-h" data-view="carousel" style="display: none;"></i>
+                        </button>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">June 15, 2023</span>
+                            <span class="blog-category">Design</span>
+                        </div>
+                        <h3 class="blog-title">Exploring Modern Web Design Trends</h3>
+                        <p class="blog-excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <a href="blog/post1.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                
+                <!-- Regular Blog Posts -->
+                <article class="blog-card wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="blog-media">
+                        <img src="assets/blog/post2.jpg" alt="Blog post image">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">May 28, 2023</span>
+                            <span class="blog-category">Development</span>
+                        </div>
+                        <h3 class="blog-title">The Future of JavaScript Frameworks</h3>
+                        <p class="blog-excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt.</p>
+                        <a href="blog/post2.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                
+                <article class="blog-card wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="blog-media">
+                        <img src="assets/blog/post3.jpg" alt="Blog post image">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">April 12, 2023</span>
+                            <span class="blog-category">Career</span>
+                        </div>
+                        <h3 class="blog-title">Building a Personal Brand Online</h3>
+                        <p class="blog-excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt.</p>
+                        <a href="blog/post3.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+            
+            <div class="text-center wow fadeInUp" data-wow-delay="0.6s">
+                <a href="blog/" class="btn btn-outline">View All Posts</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Experience Section -->
+    <section id="experience" class="section experience-section">
+        <div class="container">
+            <h2 class="section-title wow fadeInUp">Professional <span>Journey</span></h2>
+            <p class="section-subtitle wow fadeInUp" data-wow-delay="0.2s">My career timeline and key milestones</p>
+            
+            <div class="timeline-container wow fadeInUp" data-wow-delay="0.4s">
+                <div class="timeline">
+                    <!-- Timeline Item -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2023 - Present</div>
+                        <div class="timeline-content">
+                            <h3>Senior [Your Role]</h3>
+                            <h4>Company Name</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <div class="timeline-tags">
+                                <span>Leadership</span>
+                                <span>Strategy</span>
+                                <span>Development</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Item -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2020 - 2023</div>
+                        <div class="timeline-content">
+                            <h3>[Your Previous Role]</h3>
+                            <h4>Previous Company</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <div class="timeline-tags">
+                                <span>Web Development</span>
+                                <span>UI Design</span>
+                                <span>Team Coordination</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Item -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2018 - 2020</div>
+                        <div class="timeline-content">
+                            <h3>Junior [Your Early Role]</h3>
+                            <h4>Early Career Company</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <div class="timeline-tags">
+                                <span>Frontend</span>
+                                <span>Design</span>
+                                <span>Learning</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Gantt Chart Visualization -->
+            <div class="gantt-chart wow fadeInUp" data-wow-delay="0.6s">
+                <h3 class="chart-title">Skills Development Timeline</h3>
+                <div class="chart-container">
+                    <div class="chart-legend">
+                        <div class="legend-item">
+                            <span class="legend-color design"></span>
+                            <span>Design</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color development"></span>
+                            <span>Development</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color leadership"></span>
+                            <span>Leadership</span>
+                        </div>
+                    </div>
+                    <div class="chart-bars">
+                        <div class="chart-bar">
+                            <div class="bar-label">2018</div>
+                            <div class="bar-segments">
+                                <div class="segment design" style="width: 60%;"></div>
+                                <div class="segment development" style="width: 30%;"></div>
+                                <div class="segment leadership" style="width: 10%;"></div>
+                            </div>
+                        </div>
+                        <div class="chart-bar">
+                            <div class="bar-label">2019</div>
+                            <div class="bar-segments">
+                                <div class="segment design" style="width: 50%;"></div>
+                                <div class="segment development" style="width: 40%;"></div>
+                                <div class="segment leadership" style="width: 10%;"></div>
+                            </div>
+                        </div>
+                        <div class="chart-bar">
+                            <div class="bar-label">2020</div>
+                            <div class="bar-segments">
+                                <div class="segment design" style="width: 40%;"></div>
+                                <div class="segment development" style="width: 50%;"></div>
+                                <div class="segment leadership" style="width: 10%;"></div>
+                            </div>
+                        </div>
+                        <div class="chart-bar">
+                            <div class="bar-label">2021</div>
+                            <div class="bar-segments">
+                                <div class="segment design" style="width: 30%;"></div>
+                                <div class="segment development" style="width: 50%;"></div>
+                                <div class="segment leadership" style="width: 20%;"></div>
+                            </div>
+                        </div>
+                        <div class="chart-bar">
+                            <div class="bar-label">2022</div>
+                            <div class="bar-segments">
+                                <div class="segment design" style="width: 20%;"></div>
+                                <div class="segment development" style="width: 50%;"></div>
+                                <div class="segment leadership" style="width: 30%;"></div>
+                            </div>
+                        </div>
+                        <div class="chart-bar">
+                            <div class="bar-label">2023</div>
+                            <div class="bar-segments">
+                                <div class="segment design" style="width: 15%;"></div>
+                                <div class="segment development" style="width: 45%;"></div>
+                                <div class="segment leadership" style="width: 40%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+   <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <h2 class="section-title wow fadeInUp">Get In <span>Touch</span></h2>
+            <p class="section-subtitle wow fadeInUp" data-wow-delay="0.2s">Let's connect and collaborate</p>
+            
+            <div class="contact-grid">
+                <div class="contact-info wow fadeInLeft">
+                    <h3>Contact Information</h3>
+                    <ul class="contact-details">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>your.email@example.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+1 (123) 456-7890</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Your City, Country</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="social-links">
+                        <h4>Follow Me</h4>
+                        <ul>
+                            <li>
+                                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Dribbble">
+                                    <i class="fab fa-dribbble"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="contact-options wow fadeInRight">
+                    <h3>How to Reach Me</h3>
+                    <div class="contact-cards">
+                        <div class="contact-card">
+                            <i class="fas fa-calendar-alt"></i>
+                            <h4>Schedule a Call</h4>
+                            <p>Book a time that works for you</p>
+                            <a href="#" class="btn btn-small">Book Now</a>
+                        </div>
+                        <div class="contact-card">
+                            <i class="fas fa-paper-plane"></i>
+                            <h4>Send an Email</h4>
+                            <p>Drop me a direct message</p>
+                            <a href="mailto:your.email@example.com" class="btn btn-small">Email Me</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#home" class="brand-logo">Your<span>Name</span></a>
+                    <p class="footer-tagline">Crafting digital excellence through innovative solutions.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Subscribe to my newsletter for the latest updates.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email" required>
+                        <button type="submit" class="btn btn-small">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> Your Name. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript files will be added later -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Initialize WOW.js for animations
+        new WOW().init();
+        
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
