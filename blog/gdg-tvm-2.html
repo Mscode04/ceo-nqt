@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cloud Community Days 2025 | Shaheen KP</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #0a0a0a;
+      --secondary-color: #1a1a1a;
+      --accent-color: #4285F4;
+      --text-color: #f0f0f0;
+      --text-secondary: #b0b0b0;
+      --card-bg: #1e1e1e;
+      --border-color: #333;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--primary-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .blog-header {
+      padding: 4rem 0 2rem;
+      text-align: center;
+      background: linear-gradient(rgba(10,10,10,0.9), rgba(10,10,10,0.9)), url('/Assets/img/blog-30.jpg') center/cover;
+    }
+
+    .blog-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .blog-meta {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      color: var(--text-secondary);
+    }
+
+    .blog-content {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 0 20px;
+    }
+
+    .blog-image {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin: 2rem 0;
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin: 2rem 0;
+    }
+
+    .image-grid img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    .blog-footer {
+      border-top: 1px solid var(--border-color);
+      padding: 2rem 0;
+      margin-top: 3rem;
+    }
+
+    .action-buttons {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      padding: 0.6rem 1.2rem;
+      border-radius: 4px;
+      font-weight: 500;
+      cursor: pointer;
+      border: 1px solid var(--accent-color);
+      background: transparent;
+      color: var(--accent-color);
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background: var(--accent-color);
+      color: white;
+    }
+
+    @media print {
+      .no-print {
+        display: none;
+      }
+      body {
+        background: white;
+        color: black;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="blog-header">
+    <div class="container">
+      <h1 class="blog-title">Google Cloud Community Days 2025 – Trivandrum</h1>
+      <div class="blog-meta">
+        <span><i class="far fa-calendar-alt"></i> March 10, 2025</span>
+        <span><i class="far fa-clock"></i> 5 min read</span>
+        <span><i class="fas fa-tag"></i> Google Cloud, Events</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="blog-content">
+    <img src="/Assets/img/blog-31.jpg" alt="Cloud Community Event" class="blog-image">
+    
+    <h2>Learning, Sharing, and Cloud Magic in Trivandrum</h2>
+    
+    <p>As a tech enthusiast and founder of Neuraq Technologies, I was thrilled to attend the Google Cloud Community Days 2025 organized by GDG Cloud Trivandrum at C-DAC Technopark. The event was a spectacular blend of innovation, collaboration, and the Google Cloud spirit.</p>
+
+    <p>Sessions covered diverse topics including real-world cloud solutions, scalable architecture, and cutting-edge AI implementations. Every speaker brought their A-game, and it was inspiring to hear from Google Developer Experts and top architects like Sathish VJ, Shidhin CR, and Nirav Kothari.</p>
+    
+    <div class="image-grid">
+      <img src="/Assets/img/blog-32.jpg" alt="Talk sessions">
+      <img src="/Assets/img/blog-33.jpg" alt="Networking and tech showcase">
+    </div>
+
+    <p>Beyond the tech, what stood out was the sense of community. From early-career developers to seasoned architects, everyone was eager to share ideas and build lasting connections. The event reinforced the importance of community-driven learning and innovation.</p>
+
+    <p>This wasn't just a tech conference—it was a celebration of curiosity, progress, and the shared dream of building better solutions through cloud technologies. I left Trivandrum recharged, connected, and ready to bring more cloud magic into Neuraq’s projects.</p>
+
+    <img src="/Assets/img/blog-30.jpg" alt="GDG Cloud Trivandrum" class="blog-image">
+
+    <div class="blog-footer">
+      <div class="action-buttons no-print">
+        <button class="btn" onclick="window.print()">🖨 Print Article</button>
+        <button class="btn" id="shareBtn">🔗 Share This Page</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Web Share API with fallback
+    document.getElementById('shareBtn').addEventListener('click', async () => {
+      const shareData = {
+        title: document.title,
+        text: "Check out my blog on Google Cloud Community Days 2025 – Trivandrum!",
+        url: window.location.href,
+      };
+
+      if (navigator.share) {
+        try {
+          await navigator.share(shareData);
+        } catch (err) {
+          console.error("Share failed:", err);
+        }
+      } else {
+        navigator.clipboard.writeText(window.location.href).then(() => {
+          alert("Link copied to clipboard!");
+        });
+      }
+    });
+  </script>
+</body>
+</html>
